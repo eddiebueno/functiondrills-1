@@ -6,12 +6,15 @@ function getYearOfBirth(age){
 }
 
 function createGreeting(name,age){
+    if (typeof name !== "string" || isNaN(age)){
+        throw new TypeError("Incorrect type");
+    }
     const yearOfBirth = getYearOfBirth(age);
     return `I was born in ${yearOfBirth}`;
 }
 
 try{
-    const greetingOne = createGreeting("Eddie", 25);
+    const greetingOne = createGreeting(22, 'two');
     console.log(greetingOne);
 }
 catch (e){
